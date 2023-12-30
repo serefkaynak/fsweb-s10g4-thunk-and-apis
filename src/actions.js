@@ -16,6 +16,15 @@ export const addFav = (info) => {
 export const removeFav = (id) => {
   return { type: FAV_REMOVE, payload: id }
 }
+export const fetchSuccess = () => {
+  return { type: FETCH_SUCCESS }
+}
+export const fetchLoading = () => {
+  return { type: FETCH_LOADING }
+}
+export const fetchError = () => {
+  return { type: FETCH_ERROR }
+}
 
 export const fetchAnother = () => dispatch => {
 }
