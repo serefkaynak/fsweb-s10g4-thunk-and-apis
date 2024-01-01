@@ -6,7 +6,7 @@ export const FAV_REMOVE = "FAV_REMOVE";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_LOADING = "FETCH_LOADING";
 export const FETCH_ERROR = "FETCH_ERROR";
-export const RESET_FAV = " RESET_FAV ";
+export const RESET_FAV = "RESET_FAV";
 
 export const getFavsFromLocalStorage = () => {
   return { type: GET_FAVS_FROM_LS };

@@ -28,26 +28,21 @@ export function myReducer(state = initial, action) {
   switch (action.type) {
     case FAV_ADD:
       if (!state.favs.includes(action.payload)) {
-        let newState = { ...state, favs: [...state.favs, action.payload] };
+        let newState = { ...state, favs: [...state.favs, action.payload]};
         writeFavsToLocalStorage(newState);
         toast.success("Favorilere eklendi!");
         return newState;
       }
-
     case FAV_REMOVE:
-      let newState = {
-        ...state,
-        favs: state.favs.filter((del) => del.message !== action.payload),
-      };
+      let newState = {...state,favs: state.favs.filter((del) => del.message !== action.payload)};
       writeFavsToLocalStorage(newState);
+      toast.success("Favorilerden silindi!");
       return newState;
 
     case RESET_FAV:
-      let resetState = {
-        ...state,
-        favs: [],
-      };
+      let resetState = {...state,favs: []};
       writeFavsToLocalStorage(resetState);
+      toast.success("Favoriler sıfırlandı!");
       return resetState;
 
     case FETCH_SUCCESS:
@@ -61,6 +56,7 @@ export function myReducer(state = initial, action) {
       return { ...state, error: action.payload };
 
     case GET_FAVS_FROM_LS:
+      toast.success("Favoriler yüklendi!");
       return { ...state, favs: readFavsFromLocalStorage || [] };
 
     default:
